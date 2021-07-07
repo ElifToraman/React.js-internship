@@ -1,0 +1,41 @@
+.Text{
+    width:100%;
+    border:1px solid grey;
+    box-shadow: -2px 7px 15px 10px rgba(0,0,0,0.75);
+    font-family: 'Times New Roman', Courier, monospace;
+    font-size: large;
+    color: rgba(0,0,0,0.70);
+}
+.Text input{
+    
+    width:100%;
+    border:none;
+    font-family: 'Times New Roman', Courier, monospace;
+    font-size: large;
+    color: rgba(0,0,0,0.70);
+    padding:10px 5px;
+    box-sizing: border-box;
+    outline:none;
+}
+.Text ul{
+    list-style-type:none;
+    text-align: left;
+    margin:0;
+    padding:0;
+    border-top:1px solid grey;
+
+}
+.Text ul::before{
+    content:"";
+}
+.Text li{
+    padding: 10px 5px;
+    cursor:pointer;
+}
+.Text li:hover{
+    text-decoration: underline;
+    background: #DDFC65;
+    background: -webkit-radial-gradient(bottom, #DDFC65, #96AAA4);
+    background: -moz-radial-gradient(bottom, #DDFC65, #96AAA4);
+    background: radial-gradient(to top, #DDFC65, #96AAA4);;
+}
