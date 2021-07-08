@@ -14,8 +14,19 @@
 }
 
 .App-Component{
-  margin: 150px auto 0 auto;
+  margin: 200px auto 0 auto;
   width: 300px;
+}
+
+.App-Container{
+  position: absolute;
+  left: 690px;
+  top: 0px;
+  margin: 100px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size:50px;
+  font-weight: bold;
+  
 }
 
 .App-header {
