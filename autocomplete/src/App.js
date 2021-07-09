@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Text from './components/Text';
+//import Text from './components/Text';
 import countryNames from './data/countries.json';
+import HookTest from './components/HookTest';
 
 
 function App() {
