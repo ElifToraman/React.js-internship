@@ -40,7 +40,7 @@ const FormSignup = ({ submitForm }) => {
           />
           {errors.password && <p>{errors.password}</p>}
         </div>
-        <button className='form-input-btn' type='submit'>
+        <button className='form-input-btn' type='submit' disabled={!values.username || !values.password ? 'disabled' : ""}>
           Sign up
         </button>
       </form>

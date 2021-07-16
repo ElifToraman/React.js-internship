@@ -129,8 +129,13 @@
     color: #fff;
     font-size: 1rem;
   }
+
+  .form-input-btn:disabled {
+    background: gainsboro;
+    cursor: auto;
+  }
   
-  .form-input-btn:hover {
+  .form-input-btn:not(:disabled):hover {
     cursor: pointer;
     background: linear-gradient(
       90deg,
