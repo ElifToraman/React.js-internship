@@ -14,7 +14,7 @@ export default function App(props) {
       <BrowserRouter>
         <Switch>
          
-          <Route path="/chars/:id" component={SoloChar} />
+          <Route path="/chars/:id" component={SoloChar}/>
           <Route path="/chars" component={CharList} />
           <Route path="/" exact component={CharList} />
         </Switch>
