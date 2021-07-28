@@ -5,18 +5,53 @@ import axios from "axios";
 
 export default function SoloChar(props) {
   const [char, setChar] = useState([]);
+  const [episodeList,setEpisodeList] = useState([]);
+
+
   useEffect(() => {
     axios
       .get(`https://rickandmortyapi.com/api/character/${props.match.params.id} `)
       .then(res => {
         setChar(res.data);
-        console.log("Response:", res);
       })
       .catch(err => {
         console.log(err.message);
       });
   }, [props.match.params.id]);
 
+  useEffect(() => {
+      if(char && char.episode){
+        getEpisodes()
+      }
+  }, [char]);
+
+   const  getEpisodes = () => {
+     console.log(getEpisodeIdList(char.episode))
+    if(char && char.episode){
+          getEpisodeDetails(getEpisodeIdList(char.episode)).then((resp) => {
+            setEpisodeList(resp)
+          })
+    }
+  }
+
+  const getEpisodeIdList= (episodeList) => {
+      if (episodeList !== null) {
+          return episodeList.map((item) => {
+              return item.replace('https://rickandmortyapi.com/api/episode/', '')
+          });
+      } else {
+          return false;
+      }
+  }
+
+
+  const getEpisodeDetails = async(episodeId) => {
+    return  await fetch('https://rickandmortyapi.com/api/episode/' + episodeId)
+    .then(response => response.json())
+    .then(data => {
+        return data;
+    });
+  }
 
   return (
     <SoloCharWrapper>
@@ -31,8 +66,15 @@ export default function SoloChar(props) {
         <p>Species: {char.species}</p>
         <p>{char.gender}</p>
         <p>{char.origin && char.origin.name}</p>
-      
+        <ul>
+        {
+          episodeList && episodeList.length > 0 && episodeList.map((item, index) => {
+            return (<li key={index} style={{color:'white'}}>{item.name} --- {item.air_date} ---  {item.episode}</li>)
+          })
+        }
+        </ul>
       </CharCard>
+
     </SoloCharWrapper>
   );
 }
