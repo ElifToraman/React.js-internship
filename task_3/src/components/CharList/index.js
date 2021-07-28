@@ -23,7 +23,7 @@ export default function CharList() {
   return (
     <CharListWrapper>
       <div>
-        <h4 style={{color:"white",fontSize:"50px"}}>Rick and Morty!</h4>
+        <h4 style={{color:"white",fontSize:"50px"}}>Rick&Morty!</h4>
       </div>
       <CharListContainer>
         {chars.map(char => {
