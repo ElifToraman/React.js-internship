@@ -60,7 +60,7 @@ export default function SoloChar(props) {
       </Nav>
 
       <CharCard>
-        <h2>Rick and Morty</h2>
+        
         <h3>{char.name}</h3>
         <img src={char.image} alt="profile pic" />
         <p>Status: {char.status}</p>
