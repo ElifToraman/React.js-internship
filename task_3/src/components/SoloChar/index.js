@@ -25,11 +25,11 @@ export default function SoloChar(props) {
       }
   }, [char]);
 
-   const  getEpisodes = () => {
+  const  getEpisodes = () => {
      console.log(getEpisodeIdList(char.episode))
     if(char && char.episode){
           getEpisodeDetails(getEpisodeIdList(char.episode)).then((resp) => {
-            setEpisodeList(resp)
+            setEpisodeList(resp);
           })
     }
   }
@@ -49,7 +49,7 @@ export default function SoloChar(props) {
     return  await fetch('https://rickandmortyapi.com/api/episode/' + episodeId)
     .then(response => response.json())
     .then(data => {
-        return data;
+        return episodeId.length === 1 ? [data] : data;
     });
   }
 
@@ -58,36 +58,42 @@ export default function SoloChar(props) {
       <Nav>
         <Link to="/chars">Back</Link>
       </Nav>
-
       <CharCard>
-        
-        <h3>{char.name}</h3>
-        <img src={char.image} alt="profile pic" />
-        <p>Status: {char.status}</p>
-        <p>Species: {char.species}</p>
-        <p>{char.gender}</p>
-        <p>{char.origin && char.origin.name}</p>
-        <ul>
-        {
-          episodeList && episodeList.length > 0 && episodeList.map((item, index) => {
-            
-            return (
-              <div key={'episode_'} className={'episode'}>
-                            <h3>{item.name} <i>({item.episode})</i></h3>
-                            <span className={'episode-air-date'}>{item.air_date}</span>
-                            <div className={'clear'}/>
-              </div>
-            )
-          })
-        }
-        </ul>
+        <CharacterInfoWrapper>
+          <div>
+            <img src={char.image} alt="profile pic" />
+            <h3>{char.name}</h3>
+            <p>STATUS:{char.status}</p>
+            <p>SPECIES:{char.species}</p>
+            <p>GENDER:{char.gender}</p>
+            <p>ORIGIN: {char.origin && char.origin.name}</p>
+            <p>LAST LOCATION:{char.location&&char.location.name}</p>
+          </div>
+          <div>
+            <ul>
+            {
+              episodeList && episodeList.length > 0 && episodeList.map((item, index) => {
+                
+                return (
+                  <div key={'episode'} className={'episode'}>
+                                <h3>{item.name} <i>({item.episode})</i></h3>
+                                <span className={'episode-air-date'}>{item.air_date}</span>
+                                <div className={'clear'}/>
+                  </div>
+                )
+              })
+            }
+            </ul>
+          </div>
+        </CharacterInfoWrapper>
       </CharCard>
-
     </SoloCharWrapper>
   );
 }
 
-
+const CharacterInfoWrapper = styled.div`
+  display: flex;
+`;
 
 const SoloCharWrapper = styled.div`
   display: flex;
@@ -106,7 +112,7 @@ const CharCard = styled.div`
   background: #878f99;
   width: 50vw;
   border-radius: 15px;
-  filter: drop-shadow(0.2rem 0.2rem 0.5rem #e6e2d3);
+  filter: drop-shadow(0.2rem 0.2rem 0.5rem black);
   h3 {
     font-size: 2rem;
   }
@@ -134,6 +140,6 @@ const Nav = styled.div`
   }
   a:hover {
     color: darkgrey;
-    background: white;
+    background: green;
   }
 `;

@@ -22,12 +22,6 @@ export default function App(props) {
 }
 
 const AppWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #1c75e9;
-  a:hover {
-    text-decoration: none;
-  }
+
 `;
 

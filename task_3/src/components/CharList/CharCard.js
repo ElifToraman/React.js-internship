@@ -7,12 +7,9 @@ export default function CharCard({ char }) {
   return (
     <CharChardWrapper>
       <Link to={`/chars/${char.id}`} key={char.id}>
-        <p>{char.name}</p>
         <img src={char.image} alt="profile pic" />
+        <p>{char.name}</p>
       </Link>
-      <p>{char.species}</p>
-      <p>{char.gender}</p>
-      <p>{char.origin.name}</p>
     </CharChardWrapper>
   );
 }
@@ -21,19 +18,18 @@ const CharChardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: white;
-  width: 45vw;
-  border-radius: 15px;
+  background: #878f99;
+  width: 20vw;
+  border-radius: 40px;
   margin-bottom: 2rem;
-  filter: drop-shadow(0.2rem 0.2rem 0.5rem darkblue);
-  h3 {
-    font-size: 2rem;
-  }
+  filter: drop-shadow(0.2rem 0.2rem 0.5rem black);
   img {
     border-radius: 15px;
     filter: drop-shadow(0.1rem 0.1rem 0.25rem darkslategray);
   }
   p {
-    font-size: 1.4rem;
+    text-align: center;
+    font-weight:bold;
+    font-size: 1.9rem;
   }
 `;

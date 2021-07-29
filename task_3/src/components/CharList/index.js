@@ -23,7 +23,7 @@ export default function CharList() {
   return (
     <CharListWrapper>
       <div>
-        <h4 style={{color:"white",fontSize:"50px"}}>Rick&Morty!</h4>
+        <h4>Rick&Morty!</h4>
       </div>
       <CharListContainer>
         {chars.map(char => {
@@ -34,25 +34,13 @@ export default function CharList() {
   );
 }
 
-const CharListWrapper = styled.div``;
-
-const Nav = styled.div`
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-bottom: 2rem;
-  a {
-    text-decoration: none;
-    font-size: 1.6rem;
-    background: #505152;
-    border-radius: 0.3rem;
-    padding: 0.3rem;
-    color: #505152;
-  }
-  a:hover {
-    color: #505152;
-    background: darkslateblue;
-  }
+const CharListWrapper = styled.div`
+h4 { 
+  text-align: center;
+  font-size:5rem;
+  color:white;
+  font-weight:bold;
+}
 `;
 
 const CharListContainer = styled.div`
