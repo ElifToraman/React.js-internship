@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-
-import { Link } from "react-router-dom";
-
 import CharCard from "./CharCard";
 import axios from "axios";
 

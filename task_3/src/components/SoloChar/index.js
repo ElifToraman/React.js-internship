@@ -7,7 +7,6 @@ export default function SoloChar(props) {
   const [char, setChar] = useState([]);
   const [episodeList,setEpisodeList] = useState([]);
 
-
   useEffect(() => {
     axios
       .get(`https://rickandmortyapi.com/api/character/${props.match.params.id} `)
@@ -26,7 +25,6 @@ export default function SoloChar(props) {
   }, [char]);
 
   const  getEpisodes = () => {
-     console.log(getEpisodeIdList(char.episode))
     if(char && char.episode){
           getEpisodeDetails(getEpisodeIdList(char.episode)).then((resp) => {
             setEpisodeList(resp);
@@ -67,7 +65,7 @@ export default function SoloChar(props) {
             <p>SPECIES:{char.species}</p>
             <p>GENDER:{char.gender}</p>
             <p>ORIGIN: {char.origin && char.origin.name}</p>
-            <p>LAST LOCATION:{char.location&&char.location.name}</p>
+            <p>LAST LOCATION:{char.location && char.location.name}</p>
           </div>
           <div>
             <ul>
