@@ -18,8 +18,6 @@ export default function CharList() {
   }, []);
 
   return (
-
-    
     <CharListWrapper>
       <div>
         <h4>Rick&Morty!</h4>
